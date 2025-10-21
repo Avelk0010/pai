@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo 1: Módulo Académico y Notas - Sistema PAI-REP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #27ae60 0%, #2c3e50 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            margin: -20px -20px 30px -20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro { background: #e8f5e8; border-left: 5px solid #27ae60; }
+        .concept { background: #e8f4fd; border-left: 5px solid #3498db; }
+        .example { background: #fff3cd; border-left: 5px solid #f39c12; }
+        .code { background: #f8f9fa; border-left: 5px solid #6c757d; }
+        .demo { background: #fce4ec; border-left: 5px solid #e91e63; }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-title {
+            background: #4a5568;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 15px -20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #ffd700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            background: #3498db;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            margin: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #e74c3c;
+        }
+
+        .grade-scale {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .grade-item {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .superior { background: #27ae60; }
+        .alto { background: #2ecc71; }
+        .basico { background: #f39c12; }
+        .bajo { background: #e74c3c; }
+
+        .time-indicator {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .tip {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .screenshot {
+            text-align: center;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Grupo 1: Módulo Académico y Notas - Sistema PAI-REP</h1>
+            <p>El Corazón del Sistema Educativo</p>
+        </div>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🎯 ¿Qué es el Módulo Académico?</h2>
+            
+            <p>El módulo académico es como <strong>el cerebro del sistema educativo</strong>. Aquí se gestiona todo lo relacionado con la enseñanza y las calificaciones.</p>
+
+            <div class="flow-diagram">
+                <div class="flow-step">📚 Materias</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">📝 Actividades</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">📊 Calificaciones</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">🏆 Promedio Final</div>
+            </div>
+
+            <h3>¿Qué problemas resuelve?</h3>
+            <ul>
+                <li><strong>🗂️ Organización:</strong> Mantiene todas las materias y actividades organizadas</li>
+                <li><strong>⚡ Automatización:</strong> Calcula promedios automáticamente</li>
+                <li><strong>📈 Seguimiento:</strong> Los profesores y estudiantes ven el progreso en tiempo real</li>
+                <li><strong>🔒 Control:</strong> Solo profesores autorizados pueden calificar</li>
+            </ul>
+
+            <div class="important-note">
+                <strong>🎓 Ejemplo Práctico:</strong> Un profesor crea un examen de Matemáticas, lo califica, y automáticamente se actualiza el promedio de cada estudiante. ¡Sin hacer cálculos manuales!
+            </div>
+        </section>
+
+        <section class="section concept">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>🏗️ Estructura del Sistema de Notas</h2>
+
+            <h3>El Sistema de Calificaciones Colombiano</h3>
+            <div class="grade-scale">
+                <div class="grade-item superior">
+                    <strong>4.6 - 5.0</strong><br>
+                    Superior
+                </div>
+                <div class="grade-item alto">
+                    <strong>4.0 - 4.5</strong><br>
+                    Alto
+                </div>
+                <div class="grade-item basico">
+                    <strong>3.0 - 3.9</strong><br>
+                    Básico
+                </div>
+                <div class="grade-item bajo">
+                    <strong>1.0 - 2.9</strong><br>
+                    Bajo
+                </div>
+            </div>
+
+            <h3>Componentes del Sistema</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>¿Qué es?</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Materia</strong></td>
+                        <td>Asignatura que se enseña</td>
+                        <td>Matemáticas, Ciencias, Inglés</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Actividad</strong></td>
+                        <td>Evaluación o tarea</td>
+                        <td>Examen Final, Proyecto, Quiz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Porcentaje</strong></td>
+                        <td>Peso de la actividad</td>
+                        <td>Examen 40%, Tareas 20%, Proyecto 40%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Calificación</strong></td>
+                        <td>Nota del estudiante</td>
+                        <td>4.2, 3.8, 5.0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip">
+                <strong>💡 Regla de Oro:</strong> Los porcentajes de todas las actividades de un período DEBEN sumar exactamente 100%. ¡El sistema no deja finalizar el período si no!
+            </div>
+        </section>
+
+        <section class="section example">
+            <div class="time-indicator">⏰ Tiempo: 5 minutos</div>
+            <h2>📝 ¿Cómo Funciona en la Práctica?</h2>
+
+            <h3>Escenario: Profesor Juan enseña Matemáticas</h3>
+
+            <div class="flow-diagram">
+                <div class="flow-step">1. Crear Actividad</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">2. Asignar Porcentaje</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">3. Publicar</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">4. Calificar</div>
+            </div>
+
+            <h3>Paso 1: Crear una Actividad</h3>
+            <div class="screenshot">
+                <strong>🖥️ Interfaz del Profesor</strong><br>
+                Formulario: "Examen Final de Álgebra"<br>
+                Tipo: Examen • Porcentaje: 40% • Puntaje Máximo: 5.0<br>
+                Fecha límite: 15/12/2024
+            </div>
+
+            <h3>Paso 2: El Sistema Valida</h3>
+            <ul>
+                <li><strong>✅ Porcentajes:</strong> ¿La suma con otras actividades da 100%?</li>
+                <li><strong>✅ Fechas:</strong> ¿La fecha es válida para el período?</li>
+                <li><strong>✅ Permisos:</strong> ¿El profesor puede crear actividades en esta materia?</li>
+            </ul>
+
+            <h3>Paso 3: Calificación Masiva</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estudiante</th>
+                        <th>Calificación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ana García</td>
+                        <td>4.5</td>
+                        <td style="color: #27ae60;">✅ Alto</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos Ruiz</td>
+                        <td>3.2</td>
+                        <td style="color: #f39c12;">⚠️ Básico</td>
+                    </tr>
+                    <tr>
+                        <td>María López</td>
+                        <td>2.8</td>
+                        <td style="color: #e74c3c;">❌ Bajo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section code">
+            <div class="time-indicator">⏰ Tiempo: 5 minutos</div>
+            <h2>💻 ¿Cómo se ve en Código?</h2>
+
+            <h3>Ejemplo 1: Crear una Actividad</h3>
+            <div class="code-block">
+                <div class="code-title">🏗️ ActivityController.php - Método store()</div>
+<pre>
+public function store(Request $request)
+{
+    // 1. Validar los datos que envió el profesor
+    $request->validate([
+        'name' => 'required|string',           // 📝 Nombre obligatorio
+        'type' => 'required|string',           // 📋 Tipo de actividad
+        'max_score' => 'required|numeric',     // 🔢 Puntaje máximo
+        'percentage' => 'required|numeric',    // 📊 Porcentaje
+        'due_date' => 'required|date',         // 📅 Fecha límite
+    ]);
+
+    // 2. Crear la actividad en la base de datos
+    Activity::create([
+        'name' => $request->name,
+        'type' => $request->type,
+        'max_score' => $request->max_score,
+        'percentage' => $request->percentage,
+        'due_date' => $request->due_date,
+        'teacher_id' => auth()->id(),          // 👨‍🏫 ¿Quién la creó?
+        'status' => 'draft'                    // 📝 Estado inicial
+    ]);
+
+    return redirect()->back()->with('success', '¡Actividad creada!');
+}
+</pre>
+            </div>
+
+            <div class="important-note">
+                <strong>🔍 Explicación:</strong> Este código recibe los datos del formulario, los valida (verifica que estén correctos), crea la actividad en la base de datos y le dice al profesor que todo salió bien.
+            </div>
+
+            <h3>Ejemplo 2: Calificar un Estudiante</h3>
+            <div class="code-block">
+                <div class="code-title">📊 Método gradeStudent()</div>
+<pre>
+public function gradeStudent(Request $request, $activityId, $studentId)
+{
+    // 1. Buscar la actividad
+    $activity = Activity::findOrFail($activityId);
+    
+    // 2. Validar que la nota no supere el puntaje máximo
+    $request->validate([
+        'grade' => 'required|numeric|min:1.0|max:' . $activity->max_score
+    ]);
+
+    // 3. Guardar o actualizar la calificación
+    StudentGrade::updateOrCreate([
+        'student_id' => $studentId,
+        'activity_id' => $activityId,
+    ], [
+        'grade' => $request->grade,           // 📊 La nota
+        'graded_at' => now(),                 // 🕐 Cuándo se calificó
+        'graded_by' => auth()->id()           // 👨‍🏫 Quién calificó
+    ]);
+
+    // 4. Calcular automáticamente el promedio del período
+    $this->updatePeriodGrades($activity, $studentId);
+
+    return response()->json(['success' => true, 'message' => 'Calificado!']);
+}
+</pre>
+            </div>
+
+            <div class="tip">
+                <strong>🎯 Lo Importante:</strong> El sistema no solo guarda la nota, también calcula automáticamente el promedio del estudiante considerando todos los porcentajes. ¡Matemáticas automáticas!
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>⚙️ Cálculo Automático de Promedios</h2>
+
+            <h3>¿Cómo calcula el sistema el promedio final?</h3>
+            
+            <div class="code-block">
+                <div class="code-title">🧮 Algoritmo de Cálculo de Promedio</div>
+<pre>
+// Ejemplo: Estudiante Ana en Matemáticas
+Examen Parcial:    4.2 (peso: 30%) = 4.2 × 0.30 = 1.26
+Proyecto Final:    4.8 (peso: 40%) = 4.8 × 0.40 = 1.92
+Participación:     3.5 (peso: 30%) = 3.5 × 0.30 = 1.05
+                                      ________________
+PROMEDIO FINAL:                              4.23
+
+// El código hace esto:
+$totalWeightedGrade = 0;
+foreach ($activities as $activity) {
+    $totalWeightedGrade += $studentGrade × ($activity->percentage / 100);
+}
+$finalGrade = round($totalWeightedGrade, 2);
+</pre>
+            </div>
+
+            <div class="important-note">
+                <strong>🤖 Ventaja:</strong> El profesor no tiene que hacer estos cálculos manualmente. El sistema los hace instantáneamente cada vez que se ingresa una nueva calificación.
+            </div>
+
+            <h3>Validaciones del Sistema</h3>
+            <ul>
+                <li><strong>📋 100% Obligatorio:</strong> No se puede finalizar un período si las actividades no suman 100%</li>
+                <li><strong>✅ Todos Calificados:</strong> Cada estudiante debe tener nota en cada actividad</li>
+                <li><strong>📊 Rango Válido:</strong> Las notas deben estar entre 1.0 y el puntaje máximo de la actividad</li>
+                <li><strong>🔒 Seguridad:</strong> Solo el profesor asignado puede calificar</li>
+            </ul>
+        </section>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🎯 Beneficios del Sistema</h2>
+
+            <h3>Para los Profesores</h3>
+            <ul>
+                <li><strong>⏱️ Ahorro de Tiempo:</strong> No más cálculos manuales de promedios</li>
+                <li><strong>📊 Reportes Instantáneos:</strong> Ve el rendimiento de todo el grupo al instante</li>
+                <li><strong>🔄 Flexibilidad:</strong> Puede crear diferentes tipos de actividades con distintos pesos</li>
+                <li><strong>📱 Acceso Remoto:</strong> Puede calificar desde cualquier lugar</li>
+            </ul>
+
+            <h3>Para los Estudiantes</h3>
+            <ul>
+                <li><strong>📈 Seguimiento Real:</strong> Ven sus notas inmediatamente después de ser calificados</li>
+                <li><strong>🎯 Claridad:</strong> Entienden exactamente cómo se calcula su nota final</li>
+                <li><strong>📊 Progreso Visual:</strong> Gráficos con colores que indican su desempeño</li>
+                <li><strong>📅 Organización:</strong> Todas sus materias y calificaciones en un solo lugar</li>
+            </ul>
+
+            <h3>Para los Administradores</h3>
+            <ul>
+                <li><strong>📊 Estadísticas Globales:</strong> Reportes de rendimiento de toda la institución</li>
+                <li><strong>🎓 Control de Calidad:</strong> Pueden supervisar el proceso educativo</li>
+                <li><strong>📋 Auditoría:</strong> Historial completo de todas las calificaciones</li>
+                <li><strong>⚡ Eficiencia:</strong> Procesos académicos más rápidos y confiables</li>
+            </ul>
+        </section>
+
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px; border-radius: 10px;">
+            <h2 style="color: #2c3e50;">🎤 Preguntas para la Audiencia</h2>
+            <p><strong>1.</strong> ¿Qué ventajas tiene el cálculo automático de promedios versus hacerlo manual?</p>
+            <p><strong>2.</strong> ¿Por qué creen que es importante que los porcentajes sumen exactamente 100%?</p>
+            <p><strong>3.</strong> ¿Cómo ayuda este sistema a estudiantes que quieren mejorar sus notas?</p>
+        </div>
+    </div>
+</body>
+</html>

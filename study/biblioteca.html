@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo 3: Biblioteca y Préstamos - Sistema PAI-REP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #8e44ad, #6c5ce7);
+            color: white;
+            margin: -20px -20px 30px -20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro { background: #e8f5e8; border-left: 5px solid #27ae60; }
+        .concept { background: #e8f4fd; border-left: 5px solid #3498db; }
+        .example { background: #fff3cd; border-left: 5px solid #f39c12; }
+        .code { background: #f8f9fa; border-left: 5px solid #6c757d; }
+        .demo { background: #fce4ec; border-left: 5px solid #e91e63; }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-title {
+            background: #4a5568;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 15px -20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #ffd700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .time-indicator {
+            background: #8e44ad;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .tip {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .feature-box {
+            display: inline-block;
+            padding: 15px 20px;
+            margin: 10px;
+            background: #f3e5f5;
+            border: 2px solid #8e44ad;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            min-width: 200px;
+        }
+
+        .flow-diagram {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #8e44ad;
+            margin: 10px 0;
+        }
+
+        .vs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .vs-table th, .vs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .vs-table th {
+            background-color: #8e44ad;
+            color: white;
+        }
+
+        .vs-table .old {
+            background-color: #ffebee;
+        }
+
+        .vs-table .new {
+            background-color: #e8f5e8;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Grupo 3: Biblioteca y Préstamos - Sistema PAI-REP</h1>
+            <p>Sistema Digital de Gestión Bibliotecaria - Sistema PAI-REP</p>
+        </div>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🎯 ¿Qué es una Biblioteca Digital?</h2>
+            
+            <p><strong>Imaginen la biblioteca tradicional de su escuela, pero en la computadora.</strong> Un sistema donde pueden buscar libros, solicitar préstamos, y gestionar todo desde cualquier dispositivo.</p>
+
+            <div class="important-note">
+                <strong>📖 Analogía Simple:</strong> Es como Amazon para libros de la escuela. Puedes ver qué hay disponible, "comprarlo" (pedirlo prestado), y recibes notificaciones sobre cuándo devolverlo.
+            </div>
+
+            <h3>¿Para qué sirve?</h3>
+            <ul>
+                <li><strong>🔍 Catálogo Digital:</strong> Ver todos los libros disponibles</li>
+                <li><strong>📱 Solicitar Préstamos:</strong> Pedir libros desde casa</li>
+                <li><strong>⏰ Control de Tiempo:</strong> Saber cuándo devolver</li>
+                <li><strong>📊 Historial:</strong> Ver qué libros has leído</li>
+                <li><strong>🔄 Renovaciones:</strong> Extender el tiempo de préstamo</li>
+                <li><strong>⚡ Notificaciones:</strong> Recordatorios automáticos</li>
+            </ul>
+        </section>
+
+        <section class="section concept">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>🏗️ Biblioteca Tradicional vs Digital</h2>
+
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Biblioteca Tradicional</th>
+                        <th>Biblioteca Digital</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Búsqueda de Libros</strong></td>
+                        <td class="old">Caminar por pasillos, buscar manualmente</td>
+                        <td class="new">Búsqueda instantánea por título, autor, tema</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Disponibilidad</strong></td>
+                        <td class="old">¿Está o no está en el estante?</td>
+                        <td class="new">Ver en tiempo real: "3 copias disponibles"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Préstamo</strong></td>
+                        <td class="old">Ir a la biblioteca en horarios específicos</td>
+                        <td class="new">Solicitar 24/7 desde cualquier lugar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Control de Tiempo</strong></td>
+                        <td class="old">Recordar mentalmente la fecha</td>
+                        <td class="new">Notificaciones automáticas y recordatorios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Renovación</strong></td>
+                        <td class="old">Ir físicamente a renovar</td>
+                        <td class="new">Un clic para renovar online</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Historial</strong></td>
+                        <td class="old">No hay registro para el usuario</td>
+                        <td class="new">Historial completo de lecturas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip">
+                <strong>💡 Ventaja Principal:</strong> La biblioteca digital no reemplaza los libros físicos, sino que hace más eficiente su gestión y acceso.
+            </div>
+        </section>
+
+        <section class="section example">
+            <div class="time-indicator">⏰ Tiempo: 5 minutos</div>
+            <h2>⚡ ¿Cómo Funciona el Sistema de Préstamos?</h2>
+
+            <h3>Flujo Completo de un Préstamo</h3>
+            <div class="flow-diagram">
+                <strong>1. Estudiante busca libro</strong><br>
+                "Quiero leer Cien Años de Soledad"<br>
+                <div class="arrow">↓</div>
+                <strong>2. Ve disponibilidad</strong><br>
+                "Hay 2 copias disponibles de 5 totales"<br>
+                <div class="arrow">↓</div>
+                <strong>3. Hace solicitud de préstamo</strong><br>
+                Estado: "Solicitado" ⏳<br>
+                <div class="arrow">↓</div>
+                <strong>4. Bibliotecario revisa solicitud</strong><br>
+                Puede aprobar o rechazar<br>
+                <div class="arrow">↓</div>
+                <strong>5. Si se aprueba</strong><br>
+                Estado: "Aprobado" ✅<br>
+                <div class="arrow">↓</div>
+                <strong>6. Estudiante recoge el libro</strong><br>
+                Estado: "Activo" 📖 (14 días)<br>
+                <div class="arrow">↓</div>
+                <strong>7. Estudiante devuelve</strong><br>
+                Estado: "Devuelto" ✅
+            </div>
+
+            <h3>Estados del Préstamo</h3>
+            <div class="feature-box">
+                ⏳ <strong>Solicitado</strong><br>
+                Esperando aprobación
+            </div>
+
+            <div class="feature-box">
+                ✅ <strong>Aprobado</strong><br>
+                Listo para recoger
+            </div>
+
+            <div class="feature-box">
+                📖 <strong>Activo</strong><br>
+                Libro en poder del estudiante
+            </div>
+
+            <div class="feature-box">
+                ⚠️ <strong>Vencido</strong><br>
+                Se pasó la fecha de entrega
+            </div>
+
+            <div class="feature-box">
+                ✅ <strong>Devuelto</strong><br>
+                Préstamo completado
+            </div>
+
+            <div class="feature-box">
+                ❌ <strong>Rechazado</strong><br>
+                Solicitud no aprobada
+            </div>
+        </section>
+
+        <section class="section code">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>💻 ¿Cómo se programa?</h2>
+
+            <h3>Ejemplo 1: Solicitar un préstamo</h3>
+            <div class="code-block">
+                <div class="code-title">📚 Controlador de Biblioteca (LibraryController.php)</div>
+<pre>
+// Cuando un estudiante solicita un libro
+public function requestLoan(Request $request)
+{
+    // 1. Verificar que el libro existe y está disponible
+    $resource = LibraryResource::find($request->resource_id);
+    
+    if ($resource->available_copies <= 0) {
+        return redirect()->back()->with('error', 
+            'No hay copias disponibles');
+    }
+    
+    // 2. Verificar que el usuario no tenga muchos préstamos
+    $activeLoans = auth()->user()->loans()
+                   ->where('status', 'active')->count();
+                   
+    if ($activeLoans >= 5) {
+        return redirect()->back()->with('error', 
+            'Máximo 5 préstamos activos');
+    }
+    
+    // 3. Crear la solicitud
+    LibraryLoan::create([
+        'user_id' => auth()->user()->id,
+        'resource_id' => $resource->id,
+        'status' => 'requested',        // 🔄 Estado inicial
+        'requested_at' => now()
+    ]);
+    
+    return redirect()->back()->with('success', 
+        'Solicitud enviada. El bibliotecario la revisará.');
+}
+</pre>
+            </div>
+
+            <div class="important-note">
+                <strong>🔍 Explicación:</strong> Este código verifica que haya libros disponibles, que el usuario no tenga demasiados préstamos, y crea una solicitud que debe ser aprobada por el bibliotecario.
+            </div>
+
+            <h3>Ejemplo 2: Aprobar un préstamo</h3>
+            <div class="code-block">
+                <div class="code-title">👨‍💼 Función de Aprobación del Administrador</div>
+<pre>
+// Cuando el bibliotecario aprueba una solicitud
+public function approveLoan($loanId)
+{
+    // 1. Buscar la solicitud
+    $loan = LibraryLoan::find($loanId);
+    $resource = $loan->resource;
+    
+    // 2. Verificar que aún hay copias disponibles
+    if ($resource->available_copies <= 0) {
+        return redirect()->back()->with('error', 
+            'Ya no hay copias disponibles');
+    }
+    
+    // 3. Aprobar el préstamo
+    $loan->update([
+        'status' => 'active',                    // ✅ Ahora está activo
+        'loan_date' => now(),                    // Fecha de préstamo
+        'return_date' => now()->addDays(14),     // Fecha límite (14 días)
+        'approved_by' => auth()->user()->id,     // Quién lo aprobó
+        'approved_at' => now()
+    ]);
+    
+    // 4. Reducir las copias disponibles
+    $resource->decrement('available_copies');
+    
+    return redirect()->back()->with('success', 
+        'Préstamo aprobado. El estudiante puede recoger el libro.');
+}
+</pre>
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>🎭 Casos de Uso Reales</h2>
+
+            <h3>Escenario 1: Estudiante Responsable</h3>
+            <div class="flow-diagram">
+                <strong>María (Estudiante de 11°)</strong><br>
+                Necesita "El Principito" para un ensayo<br>
+                <div class="arrow">↓</div>
+                Busca en el catálogo: "Hay 3 copias disponibles"<br>
+                <div class="arrow">↓</div>
+                Hace la solicitud desde casa<br>
+                <div class="arrow">↓</div>
+                Bibliotecaria aprueba en 1 hora<br>
+                <div class="arrow">↓</div>
+                María recoge el libro al día siguiente<br>
+                <div class="arrow">↓</div>
+                Lee el libro y lo devuelve en 10 días<br>
+                <div class="arrow">↓</div>
+                ¡Proceso exitoso! ✅
+            </div>
+
+            <h3>Escenario 2: Control de Inventario</h3>
+            <div class="code-block">
+                <div class="code-title">📊 Panel de Administrador</div>
+<pre>
+Estado actual de "Cien Años de Soledad":
+- 📚 Total de copias: 5
+- ✅ Disponibles: 1
+- 📖 Prestadas: 4
+- 🔧 En mantenimiento: 0
+
+Préstamos activos:
+- Ana Pérez (Grado 10°) - Devuelve: 15/09/2025
+- Carlos López (Grado 11°) - Devuelve: 18/09/2025
+- María González (Grado 9°) - ⚠️ VENCIDO (20/08/2025)
+- Pedro Martín (Grado 11°) - Devuelve: 22/09/2025
+
+Acciones pendientes:
+🔔 Enviar recordatorio a María González
+📋 Procesar 3 solicitudes nuevas
+📈 Generar reporte mensual
+</pre>
+            </div>
+
+            <h3>Escenario 3: Estudiante Olvidadizo</h3>
+            <div class="important-note">
+                <strong>📱 Notificación Automática:</strong><br>
+                "¡Hola Carlos! 📚 Tienes que devolver 'Don Quijote' en 2 días (15/09/2025). 
+                Si necesitas más tiempo, puedes renovar el préstamo desde tu perfil. 
+                ¿Renovar ahora? [SÍ] [NO]"
+            </div>
+        </section>
+
+        <section class="section code">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🔧 Funcionalidades del Sistema</h2>
+
+            <h3>Para Estudiantes</h3>
+            <ul>
+                <li><strong>🔍 Catálogo completo:</strong> Buscar por título, autor, materia, ISBN</li>
+                <li><strong>📱 Solicitar préstamos:</strong> Desde cualquier dispositivo, 24/7</li>
+                <li><strong>📋 Mis préstamos:</strong> Ver estado actual y historial</li>
+                <li><strong>🔄 Renovar:</strong> Extender tiempo si no hay cola de espera</li>
+                <li><strong>⏰ Recordatorios:</strong> Notificaciones de vencimiento</li>
+            </ul>
+
+            <h3>Para Administradores/Bibliotecarios</h3>
+            <ul>
+                <li><strong>➕ Agregar recursos:</strong> Nuevos libros al catálogo</li>
+                <li><strong>✏️ Editar información:</strong> Título, autor, cantidad, etc.</li>
+                <li><strong>✅ Gestionar solicitudes:</strong> Aprobar o rechazar préstamos</li>
+                <li><strong>📊 Reportes:</strong> Estadísticas de uso y popularidad</li>
+                <li><strong>🔍 Buscar usuarios:</strong> Ver préstamos por estudiante</li>
+                <li><strong>⚠️ Control de vencidos:</strong> Lista de préstamos atrasados</li>
+            </ul>
+
+            <div class="code-block">
+                <div class="code-title">📈 Ejemplo de Estadísticas</div>
+<pre>
+Dashboard de Biblioteca - Septiembre 2025
+===========================================
+📚 Total de recursos: 1,247 libros
+✅ Disponibles: 892 (71.5%)
+📖 En préstamo: 298 (23.9%)
+🔧 En mantenimiento: 57 (4.6%)
+
+📊 Top 5 Libros Más Solicitados:
+1. "Cien Años de Soledad" - 47 préstamos
+2. "Don Quijote" - 34 préstamos  
+3. "El Principito" - 29 préstamos
+4. "María" - 21 préstamos
+5. "La Metamorfosis" - 18 préstamos
+
+🎯 Usuarios más activos:
+- María González: 12 libros leídos
+- Carlos López: 9 libros leídos
+- Ana Pérez: 8 libros leídos
+</pre>
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="time-indicator">⏰ Tiempo: 2 minutos</div>
+            <h2>🚀 Impacto en la Educación</h2>
+
+            <h3>Antes del Sistema Digital</h3>
+            <ul>
+                <li>❌ Libros perdidos sin control</li>
+                <li>❌ No saber qué está disponible</li>
+                <li>❌ Procesos manuales lentos</li>
+                <li>❌ Préstamos olvidados</li>
+                <li>❌ Horarios limitados de atención</li>
+                <li>❌ Papel y más papel</li>
+            </ul>
+
+            <h3>Con el Sistema de Biblioteca Digital</h3>
+            <ul>
+                <li>✅ Control total del inventario</li>
+                <li>✅ Disponibilidad en tiempo real</li>
+                <li>✅ Procesos automatizados</li>
+                <li>✅ Recordatorios automáticos</li>
+                <li>✅ Acceso 24/7 al catálogo</li>
+                <li>✅ Biblioteca sin papeles</li>
+                <li>✅ Estadísticas para mejorar</li>
+                <li>✅ Mejor experiencia de usuario</li>
+            </ul>
+
+            <div class="important-note">
+                <strong>🏆 Resultado:</strong> Una biblioteca moderna, eficiente y accesible que fomenta la lectura y facilita el acceso al conocimiento para toda la comunidad educativa.
+            </div>
+
+            <h3>Beneficios Cuantificables</h3>
+            <div class="feature-box">
+                ⏱️ <strong>Tiempo ahorrado</strong><br>
+                90% menos tiempo en procesos
+            </div>
+
+            <div class="feature-box">
+                📈 <strong>Uso incrementado</strong><br>
+                300% más préstamos mensuales
+            </div>
+
+            <div class="feature-box">
+                💰 <strong>Reducción de costos</strong><br>
+                80% menos papel y personal
+            </div>
+
+            <div class="feature-box">
+                😊 <strong>Satisfacción</strong><br>
+                95% de usuarios satisfechos
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px; border-radius: 10px;">
+            <h2 style="color: #2c3e50;">🎤 Preguntas para la Audiencia</h2>
+            <p><strong>1.</strong> ¿Qué ventajas tiene solicitar un libro online comparado con ir físicamente a la biblioteca?</p>
+            <p><strong>2.</strong> ¿Por qué es importante que un bibliotecario apruebe las solicitudes en lugar de ser automático?</p>
+            <p><strong>3.</strong> ¿Cómo puede un sistema digital incentivar más la lectura en los estudiantes?</p>
+            <p><strong>4.</strong> ¿Qué funcionalidad adicional agregarían ustedes al sistema de biblioteca?</p>
+            <p><strong>5.</strong> ¿Cómo beneficia este sistema tanto a estudiantes como a bibliotecarios?</p>
+        </div>
+    </div>
+</body>
+</html>

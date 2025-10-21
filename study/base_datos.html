@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de Datos y Relaciones - Sistema PAI-REP (Estudian todos)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            margin: -20px -20px 30px -20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro { background: #e8f5e8; border-left: 5px solid #27ae60; }
+        .concept { background: #e8f4fd; border-left: 5px solid #3498db; }
+        .example { background: #fff3cd; border-left: 5px solid #f39c12; }
+        .code { background: #f8f9fa; border-left: 5px solid #6c757d; }
+        .demo { background: #fce4ec; border-left: 5px solid #e91e63; }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-title {
+            background: #4a5568;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 15px -20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #ffd700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .diagram {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+
+        .relationship {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .time-indicator {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .tip {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗄️ Base de Datos y Relaciones - Sistema PAI-REP (Estudian todos)</h1>
+            <p>Fundamentos del Sistema de Información PAI</p>
+        </div>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🎯 ¿Qué es una Base de Datos?</h2>
+            
+            <p><strong>Imaginen una biblioteca gigante</strong>, pero en lugar de libros, guardamos información sobre estudiantes, profesores, materias y calificaciones. Eso es una base de datos.</p>
+
+            <div class="important-note">
+                <strong>🏠 Analogía Simple:</strong> Si tu casa es el sistema educativo, la base de datos sería como todos los archivadores donde guardas documentos importantes organizados por carpetas.
+            </div>
+
+            <h3>¿Por qué necesitamos una base de datos?</h3>
+            <ul>
+                <li><strong>Organización:</strong> Miles de datos ordenados y fáciles de encontrar</li>
+                <li><strong>Seguridad:</strong> Información protegida y respaldada</li>
+                <li><strong>Velocidad:</strong> Encontrar información en segundos</li>
+                <li><strong>Integridad:</strong> Evitar datos duplicados o errores</li>
+            </ul>
+        </section>
+
+        <section class="section concept">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>📋 Conceptos Básicos</h2>
+
+            <h3>1. Tablas (Como hojas de Excel)</h3>
+            <p>Una tabla es como una hoja de cálculo donde guardamos información del mismo tipo.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan Pérez</td>
+                        <td>juan@email.com</td>
+                        <td>Estudiante</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>María García</td>
+                        <td>maria@email.com</td>
+                        <td>Profesora</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2. Campos (Columnas)</h3>
+            <p>Cada columna representa un tipo de información: nombre, email, fecha, etc.</p>
+
+            <h3>3. Registros (Filas)</h3>
+            <p>Cada fila es un elemento completo: un estudiante, un profesor, una materia.</p>
+
+            <div class="tip">
+                <strong>💡 Recordar:</strong> Tabla = Hoja de Excel, Campo = Columna, Registro = Fila
+            </div>
+        </section>
+
+        <section class="section example">
+            <div class="time-indicator">⏰ Tiempo: 5 minutos</div>
+            <h2>🏗️ Estructura de Nuestro Sistema</h2>
+
+            <h3>Principales Tablas del Sistema PAI-REP</h3>
+
+            <div class="diagram">
+                <strong>USUARIOS</strong> 👥<br>
+                (Estudiantes, Profesores, Admins)<br><br>
+                ↕️<br><br>
+                <strong>MATERIAS</strong> 📚<br>
+                (Matemáticas, Ciencias, etc.)<br><br>
+                ↕️<br><br>
+                <strong>ACTIVIDADES</strong> 📝<br>
+                (Exámenes, Tareas, Proyectos)<br><br>
+                ↕️<br><br>
+                <strong>CALIFICACIONES</strong> 📊<br>
+                (Notas de cada estudiante)
+            </div>
+
+            <h3>¿Cómo se conectan estas tablas?</h3>
+            <ul>
+                <li><strong>Un estudiante</strong> puede tener <strong>muchas calificaciones</strong></li>
+                <li><strong>Una materia</strong> puede tener <strong>muchas actividades</strong></li>
+                <li><strong>Un profesor</strong> puede enseñar <strong>muchas materias</strong></li>
+                <li><strong>Una actividad</strong> pertenece a <strong>una sola materia</strong></li>
+            </ul>
+        </section>
+
+        <section class="section code">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>💻 ¿Cómo se ve en código?</h2>
+
+            <h3>Ejemplo 1: Crear tabla de usuarios</h3>
+            <div class="code-block">
+                <div class="code-title">📄 Migración de Usuarios (database/migrations/create_users_table.php)</div>
+<pre>
+// Esto es como crear una hoja de Excel nueva
+public function up()
+{
+    Schema::create('users', function (Blueprint $table) {
+        $table->id();                    // 🔑 Número único para cada usuario
+        $table->string('first_name');   // 📝 Nombre
+        $table->string('last_name');    // 📝 Apellido  
+        $table->string('email');        // 📧 Correo electrónico
+        $table->string('role');         // 👤 Rol: estudiante, profesor, admin
+        $table->timestamps();           // 📅 Fecha de creación y actualización
+    });
+}
+</pre>
+            </div>
+
+            <div class="important-note">
+                <strong>🔍 Explicación simple:</strong> Este código le dice a la computadora: "Crea una tabla llamada 'users' con estas columnas: id, nombre, apellido, email, rol y fechas."
+            </div>
+
+            <h3>Ejemplo 2: Crear tabla de calificaciones</h3>
+            <div class="code-block">
+                <div class="code-title">📄 Migración de Calificaciones</div>
+<pre>
+public function up()
+{
+    Schema::create('student_grades', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('student_id');   // 🔗 ¿Qué estudiante?
+        $table->foreignId('activity_id');  // 🔗 ¿Qué actividad?
+        $table->decimal('grade', 3, 2);    // 📊 La nota (ej: 4.5)
+        $table->timestamps();
+    });
+}
+</pre>
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>🔗 Relaciones Entre Tablas</h2>
+
+            <h3>Tipos de Relaciones</h3>
+
+            <div class="relationship">
+                <strong>1:N (Uno a Muchos)</strong><br>
+                Un profesor → Muchas materias
+            </div>
+
+            <div class="relationship">
+                <strong>N:M (Muchos a Muchos)</strong><br>
+                Muchos estudiantes → Muchas materias
+            </div>
+
+            <div class="relationship">
+                <strong>1:1 (Uno a Uno)</strong><br>
+                Un usuario → Un perfil
+            </div>
+
+            <h3>Ejemplo Práctico: ¿Cómo funciona?</h3>
+
+            <div class="code-block">
+                <div class="code-title">🔍 Consulta: "Dame todas las calificaciones de Juan"</div>
+<pre>
+// En lenguaje humano: "Busca en la tabla de calificaciones 
+// todas las filas donde student_id = 5 (Juan es el usuario #5)"
+
+SELECT * FROM student_grades 
+WHERE student_id = 5;
+
+// Resultado: Juan tiene 8 calificaciones en diferentes materias
+</pre>
+            </div>
+
+            <div class="diagram">
+                <strong>Ejemplo Visual:</strong><br><br>
+                Juan (ID: 5) ←→ Calificación en Matemáticas (4.2)<br>
+                Juan (ID: 5) ←→ Calificación en Ciencias (3.8)<br>
+                Juan (ID: 5) ←→ Calificación en Inglés (4.7)<br>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Clave:</strong> Las relaciones nos permiten conectar información sin repetirla. En lugar de escribir "Juan Pérez" en cada calificación, solo ponemos su ID (número 5).
+            </div>
+        </section>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🎯 Beneficios en Nuestro Sistema</h2>
+
+            <h3>¿Qué logramos con esta estructura?</h3>
+            <ul>
+                <li><strong>📊 Reportes instantáneos:</strong> "¿Cuál es el promedio de María en Matemáticas?"</li>
+                <li><strong>🔍 Búsquedas rápidas:</strong> "¿Qué estudiantes tienen notas bajas?"</li>
+                <li><strong>📈 Estadísticas:</strong> "¿Cuántos libros se prestaron este mes?"</li>
+                <li><strong>🔒 Seguridad:</strong> Cada usuario solo ve su información</li>
+                <li><strong>⚡ Velocidad:</strong> Miles de registros procesados en segundos</li>
+            </ul>
+
+            <h3>Ejemplo Real del Sistema</h3>
+            <div class="code-block">
+                <div class="code-title">🎭 Caso de Uso: Profesor califica a sus estudiantes</div>
+<pre>
+1. Profesor Juan entra al sistema
+2. Sistema busca: ¿Qué materias enseña Juan?
+3. Juan selecciona "Matemáticas - Grupo 11A"
+4. Sistema muestra: Todos los estudiantes de ese grupo
+5. Juan califica a Pedro con 4.5 en el Examen Final
+6. Sistema guarda: student_id=10, activity_id=25, grade=4.5
+7. Pedro puede ver inmediatamente su nueva calificación
+</pre>
+            </div>
+
+            <div class="important-note">
+                <strong>🏆 Conclusión:</strong> La base de datos es el corazón del sistema. Sin ella, sería imposible manejar la información de cientos de estudiantes de forma organizada y eficiente.
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px; border-radius: 10px;">
+            <h2 style="color: #2c3e50;">🎤 Preguntas para la Audiencia</h2>
+            <p><strong>1.</strong> ¿Qué pasaría si guardáramos toda la información en archivos de Word?</p>
+            <p><strong>2.</strong> ¿Cómo creen que el sistema sabe qué calificaciones mostrar a cada estudiante?</p>
+            <p><strong>3.</strong> ¿Por qué es importante no repetir información en las tablas?</p>
+        </div>
+    </div>
+</body>
+</html>

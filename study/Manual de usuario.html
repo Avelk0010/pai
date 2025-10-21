@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Sistema Educativo PAI-REP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -20px -20px 40px -20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+        }
+
+        .toc h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .section h3 {
+            color: #555;
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #666;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        .step-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .step-list ol {
+            padding-left: 20px;
+        }
+
+        .step-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .feature-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .code-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin: 2px;
+        }
+
+        .admin { background-color: #dc3545; color: white; }
+        .teacher { background-color: #28a745; color: white; }
+        .student { background-color: #007bff; color: white; }
+        .parent { background-color: #6f42c1; color: white; }
+
+        .screenshot-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #6c757d;
+        }
+
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .section { break-inside: avoid; }
+            .toc { break-inside: avoid; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .header h1 { font-size: 2em; }
+            .section h2 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Sistema Educativo PAI-REP</h1>
+            <p>Manual de Usuario Completo - Versión 1.0</p>
+        </div>
+
+        <div class="toc">
+            <h2>📋 Tabla de Contenido</h2>
+            <ul>
+                <li><a href="#introduccion">1. Introducción</a></li>
+                <li><a href="#primeros-pasos">2. Primeros Pasos</a></li>
+                <li><a href="#roles">3. Roles y Permisos</a></li>
+                <li><a href="#administrador">4. Manual del Administrador</a>
+                    <ul style="margin-left: 20px;">
+                        <li><a href="#admin-usuarios">4.1 Gestión de Usuarios</a></li>
+                        <li><a href="#admin-planes">4.2 Planes Académicos</a></li>
+                        <li><a href="#admin-materias">4.3 Gestión de Materias</a></li>
+                        <li><a href="#admin-biblioteca">4.4 Sistema de Biblioteca</a></li>
+                        <li><a href="#admin-foro">4.5 Moderación del Foro</a></li>
+                    </ul>
+                </li>
+                <li><a href="#profesor">5. Manual del Profesor</a>
+                    <ul style="margin-left: 20px;">
+                        <li><a href="#prof-actividades">5.1 Gestión de Actividades</a></li>
+                        <li><a href="#prof-calificaciones">5.2 Sistema de Calificaciones</a></li>
+                        <li><a href="#prof-periodos">5.3 Manejo de Períodos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#estudiante">6. Manual del Estudiante</a>
+                    <ul style="margin-left: 20px;">
+                        <li><a href="#est-materias">6.1 Visualización de Materias</a></li>
+                        <li><a href="#est-biblioteca">6.2 Sistema de Biblioteca</a></li>
+                        <li><a href="#est-foro">6.3 Participación en el Foro</a></li>
+                    </ul>
+                </li>
+                <li><a href="#faq">7. Preguntas Frecuentes</a></li>
+                <li><a href="#soporte">8. Soporte Técnico</a></li>
+            </ul>
+        </div>
+
+        <section id="introduccion" class="section">
+            <h2>1. 🎯 Introducción</h2>
+            
+            <p>Bienvenido al Sistema Educativo PAI-REP (Plataforma Académica Institucional República de Panamá), una plataforma integral diseñada para gestionar todos los aspectos académicos de una institución educativa. Este sistema permite la administración completa de estudiantes, profesores, planes académicos, calificaciones, biblioteca y comunicación académica.</p>
+
+            <div class="feature-box">
+                <h4>🚀 Características Principales</h4>
+                <ul>
+                    <li><strong>Gestión Académica Completa:</strong> Planes académicos, materias, actividades y calificaciones</li>
+                    <li><strong>Sistema de Biblioteca:</strong> Catálogo digital con sistema de préstamos y solicitudes</li>
+                    <li><strong>Foro Académico:</strong> Espacio de comunicación moderado para la comunidad educativa</li>
+                    <li><strong>Multi-Rol:</strong> Diferentes interfaces según el rol del usuario</li>
+                    <li><strong>Reportes y Estadísticas:</strong> Seguimiento detallado del progreso académico</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Importante:</strong> Este manual está diseñado para la versión actual del sistema. Las funcionalidades pueden variar según las actualizaciones y configuraciones específicas de tu institución.
+            </div>
+        </section>
+
+        <section id="primeros-pasos" class="section">
+            <h2>2. 🚀 Primeros Pasos</h2>
+            
+            <h3>Acceso al Sistema</h3>
+            <p>Para acceder al sistema, necesitarás tus credenciales proporcionadas por el administrador de la institución.</p>
+
+            <div class="step-list">
+                <h4>Pasos para el Primer Acceso:</h4>
+                <ol>
+                    <li>Dirígete a la URL proporcionada por tu institución</li>
+                    <li>Ingresa tu correo electrónico y contraseña</li>
+                    <li>Haz clic en "Iniciar Sesión"</li>
+                    <li>Serás redirigido al dashboard según tu rol</li>
+                </ol>
+            </div>
+
+            <h3>Navegación General</h3>
+            <p>El sistema cuenta con una navegación intuitiva que varía según tu rol:</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Descripción</th>
+                            <th>Disponible para</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dashboard</strong></td>
+                            <td>Página principal con resumen de actividades</td>
+                            <td>Todos los roles</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Perfil de Usuario</strong></td>
+                            <td>Información personal y configuración</td>
+                            <td>Todos los roles</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cerrar Sesión</strong></td>
+                            <td>Salir del sistema de forma segura</td>
+                            <td>Todos los roles</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="roles" class="section">
+            <h2>3. 👥 Roles y Permisos</h2>
+            
+            <p>El sistema maneja cuatro roles principales, cada uno con permisos específicos:</p>
+
+            <h3>Administrador <span class="role-badge admin">ADMIN</span></h3>
+            <div class="feature-box">
+                <ul>
+                    <li>Gestión completa de usuarios (crear, editar, eliminar)</li>
+                    <li>Administración de planes académicos y materias</li>
+                    <li>Supervisión de calificaciones y períodos académicos</li>
+                    <li>Gestión completa de la biblioteca y préstamos</li>
+                    <li>Moderación del foro académico</li>
+                    <li>Acceso a reportes y estadísticas generales</li>
+                </ul>
+            </div>
+
+            <h3>Profesor <span class="role-badge teacher">TEACHER</span></h3>
+            <div class="feature-box">
+                <ul>
+                    <li>Gestión de actividades académicas</li>
+                    <li>Calificación de estudiantes</li>
+                    <li>Manejo de períodos académicos</li>
+                    <li>Consulta de planes académicos</li>
+                    <li>Participación en el foro académico</li>
+                    <li>Acceso a la biblioteca</li>
+                </ul>
+            </div>
+
+            <h3>Estudiante <span class="role-badge student">STUDENT</span></h3>
+            <div class="feature-box">
+                <ul>
+                    <li>Visualización de materias y calificaciones</li>
+                    <li>Consulta de actividades académicas</li>
+                    <li>Solicitud de préstamos bibliotecarios</li>
+                    <li>Participación en el foro académico</li>
+                    <li>Acceso a su progreso académico</li>
+                </ul>
+            </div>
+
+            <h3>Padre/Acudiente <span class="role-badge parent">PARENT</span></h3>
+            <div class="feature-box">
+                <ul>
+                    <li>Consulta del progreso académico de sus hijos</li>
+                    <li>Visualización de calificaciones</li>
+                    <li>Acceso a información general</li>
+                    <li>Participación limitada en el foro</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="administrador" class="section">
+            <h2>4. 👑 Manual del Administrador</h2>
+            
+            <p>Como administrador, tienes acceso completo a todas las funcionalidades del sistema. Tu dashboard muestra un resumen general de la actividad de la plataforma.</p>
+
+            <h3 id="admin-usuarios">4.1 Gestión de Usuarios</h3>
+            
+            <h4>Crear un Nuevo Usuario</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Gestión de Usuarios"</strong> en el menú principal</li>
+                    <li>Haz clic en <strong>"Agregar Usuario"</strong></li>
+                    <li>Completa el formulario con la información requerida:
+                        <ul>
+                            <li>Nombres y apellidos</li>
+                            <li>Correo electrónico (será el usuario de acceso)</li>
+                            <li>Documento de identidad</li>
+                            <li>Teléfono y dirección</li>
+                            <li>Fecha de nacimiento</li>
+                            <li>Rol del usuario</li>
+                            <li>Para estudiantes: asignar grado y grupo</li>
+                        </ul>
+                    </li>
+                    <li>Haz clic en <strong>"Crear Usuario"</strong></li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Importante:</strong> Al crear un estudiante y asignarle un grupo, el sistema automáticamente creará su inscripción activa. No es necesario crear la inscripción manualmente.
+            </div>
+
+            <h4>Gestión de Roles</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rol</th>
+                            <th>Cuándo Asignar</th>
+                            <th>Campos Adicionales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="role-badge admin">admin</span></td>
+                            <td>Personal administrativo</td>
+                            <td>Ninguno</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge teacher">teacher</span></td>
+                            <td>Docentes</td>
+                            <td>Ninguno</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge student">student</span></td>
+                            <td>Estudiantes activos</td>
+                            <td>Grado y Grupo (obligatorios)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge parent">parent</span></td>
+                            <td>Padres/acudientes</td>
+                            <td>Ninguno</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="admin-planes">4.2 Planes Académicos</h3>
+            
+            <p>Los planes académicos son la estructura central del sistema educativo. Definen qué materias se imparten en cada grado.</p>
+
+            <h4>Crear un Plan Académico</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Planes Académicos"</strong></li>
+                    <li>Haz clic en <strong>"Crear Plan Académico"</strong></li>
+                    <li>Completa la información:
+                        <ul>
+                            <li><strong>Nombre:</strong> Nombre descriptivo del plan</li>
+                            <li><strong>Descripción:</strong> Detalles del plan académico</li>
+                            <li><strong>Año Académico:</strong> Año al que corresponde</li>
+                            <li><strong>Fecha de Inicio y Fin:</strong> Período de vigencia</li>
+                        </ul>
+                    </li>
+                    <li>Guarda el plan académico</li>
+                </ol>
+            </div>
+
+            <h4>Asignar Materias a un Plan</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Desde la lista de planes académicos, haz clic en <strong>"Ver Detalles"</strong></li>
+                    <li>Ve a la sección <strong>"Materias del Plan"</strong></li>
+                    <li>Haz clic en <strong>"Agregar Materia"</strong></li>
+                    <li>Selecciona las materias que deseas incluir</li>
+                    <li>Para cada materia, define:
+                        <ul>
+                            <li><strong>Créditos:</strong> Valor académico de la materia</li>
+                            <li><strong>Horas semanales:</strong> Intensidad horaria</li>
+                            <li><strong>Es obligatoria:</strong> Si es requerida o electiva</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3 id="admin-materias">4.3 Gestión de Materias</h3>
+            
+            <h4>Crear una Nueva Materia</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Materias"</strong> en el menú</li>
+                    <li>Haz clic en <strong>"Nueva Materia"</strong></li>
+                    <li>Completa la información:
+                        <ul>
+                            <li><strong>Nombre:</strong> Nombre de la materia</li>
+                            <li><strong>Código:</strong> Código único identificador</li>
+                            <li><strong>Área:</strong> Área académica (Matemáticas, Ciencias, etc.)</li>
+                            <li><strong>Descripción:</strong> Descripción detallada</li>
+                            <li><strong>Créditos:</strong> Valor en créditos</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Asignar Profesores a Materias</h4>
+            <p>Las asignaciones se realizan por grupo específico:</p>
+            <div class="step-list">
+                <ol>
+                    <li>En la vista de materias, selecciona una materia</li>
+                    <li>Ve a la sección <strong>"Asignaciones"</strong></li>
+                    <li>Haz clic en <strong>"Nueva Asignación"</strong></li>
+                    <li>Selecciona:
+                        <ul>
+                            <li><strong>Profesor:</strong> Docente que impartirá la materia</li>
+                            <li><strong>Grupo:</strong> Grupo específico al que se asigna</li>
+                            <li><strong>Período:</strong> Período académico correspondiente</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3 id="admin-biblioteca">4.4 Sistema de Biblioteca</h3>
+            
+            <p>El módulo de biblioteca permite gestionar el catálogo de recursos y los préstamos a estudiantes.</p>
+
+            <h4>Gestión de Recursos</h4>
+            
+            <h5>Agregar un Nuevo Recurso</h5>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Biblioteca"</strong> → <strong>"Gestionar Recursos"</strong></li>
+                    <li>Haz clic en <strong>"Agregar Recurso"</strong></li>
+                    <li>Completa el formulario:
+                        <ul>
+                            <li><strong>Título:</strong> Nombre del recurso</li>
+                            <li><strong>Autor:</strong> Autor del recurso</li>
+                            <li><strong>ISBN:</strong> Código ISBN (opcional)</li>
+                            <li><strong>Tipo de Recurso:</strong> Libro, Revista, Digital, Multimedia</li>
+                            <li><strong>Descripción:</strong> Descripción detallada</li>
+                            <li><strong>Ubicación:</strong> Ubicación física en la biblioteca</li>
+                            <li><strong>Copias Totales:</strong> Cantidad total de ejemplares</li>
+                            <li><strong>Estado:</strong> Activo/Inactivo para préstamos</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Tip:</strong> Las copias disponibles se calculan automáticamente restando las copias actualmente prestadas del total de copias.
+            </div>
+
+            <h5>Editar un Recurso</h5>
+            <div class="step-list">
+                <ol>
+                    <li>En la lista de recursos, haz clic en <strong>"Editar"</strong></li>
+                    <li>Modifica los campos necesarios</li>
+                    <li>Para cambiar el estado (activo/inactivo), usa el checkbox correspondiente</li>
+                    <li>Al modificar las copias totales, el sistema validará que no sean menores a las actualmente prestadas</li>
+                </ol>
+            </div>
+
+            <h4>Gestión de Préstamos</h4>
+            
+            <h5>Sistema de Solicitudes</h5>
+            <p>Los estudiantes no pueden tomar libros directamente. Deben solicitar préstamos que requieren tu aprobación:</p>
+
+            <div class="step-list">
+                <h5>Proceso de Aprobación de Préstamos</h5>
+                <ol>
+                    <li>Ve a <strong>"Biblioteca"</strong> → <strong>"Gestionar Préstamos"</strong></li>
+                    <li>Revisa las <strong>"Solicitudes Pendientes"</strong></li>
+                    <li>Para cada solicitud puedes:
+                        <ul>
+                            <li><strong>Aprobar:</strong> El préstamo se activa automáticamente</li>
+                            <li><strong>Rechazar:</strong> Puedes agregar un motivo de rechazo</li>
+                        </ul>
+                    </li>
+                    <li>Al aprobar:
+                        <ul>
+                            <li>Se asignan las fechas de préstamo y devolución</li>
+                            <li>Se reduce el inventario de copias disponibles</li>
+                            <li>Se notifica al estudiante</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h5>Monitoreo de Préstamos</h5>
+            <p>El sistema proporciona varias vistas para monitorear los préstamos:</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sección</th>
+                            <th>Descripción</th>
+                            <th>Acciones Disponibles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Solicitudes Pendientes</strong></td>
+                            <td>Préstamos que requieren aprobación</td>
+                            <td>Aprobar, Rechazar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Préstamos Activos</strong></td>
+                            <td>Préstamos en curso</td>
+                            <td>Ver detalles, Marcar como devuelto</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Préstamos Vencidos</strong></td>
+                            <td>Préstamos que superaron la fecha de devolución</td>
+                            <td>Contactar estudiante, Procesar devolución</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Devoluciones Recientes</strong></td>
+                            <td>Préstamos devueltos recientemente</td>
+                            <td>Ver historial</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="admin-foro">4.5 Moderación del Foro</h3>
+            
+            <p>El foro académico es un espacio moderado donde la comunidad educativa puede intercambiar ideas académicas.</p>
+
+            <h4>Panel de Moderación</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Foro"</strong> → <strong>"Panel de Moderación"</strong></li>
+                    <li>Revisa el contenido pendiente de aprobación</li>
+                    <li>Para publicaciones pendientes:
+                        <ul>
+                            <li>Lee el contenido completo</li>
+                            <li>Verifica que cumple las políticas académicas</li>
+                            <li><strong>Aprobar:</strong> La publicación se hace visible</li>
+                            <li><strong>Rechazar:</strong> La publicación se oculta</li>
+                        </ul>
+                    </li>
+                    <li>Para comentarios pendientes: mismo proceso</li>
+                </ol>
+            </div>
+
+            <h4>Gestión de Contenido</h4>
+            <div class="feature-box">
+                <h5>🛡️ Políticas de Moderación Recomendadas</h5>
+                <ul>
+                    <li><strong>Contenido Académico:</strong> Solo aprobar contenido relacionado con temas educativos</li>
+                    <li><strong>Respeto:</strong> Rechazar contenido ofensivo o irrespetuoso</li>
+                    <li><strong>Relevancia:</strong> Verificar que el contenido sea relevante para la comunidad</li>
+                    <li><strong>Calidad:</strong> Promover discusiones constructivas y bien fundamentadas</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="profesor" class="section">
+            <h2>5. 👨‍🏫 Manual del Profesor</h2>
+            
+            <p>Como profesor, tienes acceso a las herramientas necesarias para gestionar tus clases, crear actividades y calificar a tus estudiantes.</p>
+
+            <h3 id="prof-actividades">5.1 Gestión de Actividades</h3>
+            
+            <h4>Crear una Nueva Actividad</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Materias"</strong> y selecciona la materia donde quieres agregar la actividad</li>
+                    <li>Haz clic en <strong>"Nueva Actividad"</strong></li>
+                    <li>Completa el formulario:
+                        <ul>
+                            <li><strong>Nombre:</strong> Título descriptivo de la actividad</li>
+                            <li><strong>Descripción:</strong> Detalles de qué se debe realizar</li>
+                            <li><strong>Tipo de Actividad:</strong> Examen, Tarea, Proyecto, Quiz, etc.</li>
+                            <li><strong>Puntaje Máximo:</strong> Calificación máxima (ej: 5.0, 10, 100)</li>
+                            <li><strong>Porcentaje:</strong> Peso de la actividad en la nota del período</li>
+                            <li><strong>Fecha de Entrega:</strong> Cuándo vence la actividad</li>
+                            <li><strong>Período:</strong> A qué período académico pertenece</li>
+                            <li><strong>Grupos:</strong> Selecciona los grupos que participarán</li>
+                        </ul>
+                    </li>
+                    <li>Guarda la actividad</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Importante sobre Porcentajes:</strong> La suma de porcentajes de todas las actividades de un período debe ser exactamente 100% para poder finalizar el período. El sistema te avisará si falta completar el 100%.
+            </div>
+
+            <h4>Estados de las Actividades</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Estado</th>
+                            <th>Descripción</th>
+                            <th>Acciones Disponibles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Borrador</strong></td>
+                            <td>Actividad en preparación, no visible para estudiantes</td>
+                            <td>Editar, Publicar, Eliminar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Publicada</strong></td>
+                            <td>Visible para estudiantes, pueden trabajar en ella</td>
+                            <td>Editar, Calificar, Finalizar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Finalizada</strong></td>
+                            <td>Ya no acepta cambios, calificaciones cerradas</td>
+                            <td>Ver resultados, Reabrir</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="prof-calificaciones">5.2 Sistema de Calificaciones</h3>
+            
+            <h4>Calificar una Actividad</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a la actividad que quieres calificar</li>
+                    <li>Haz clic en <strong>"Calificar Estudiantes"</strong></li>
+                    <li>Tienes dos opciones:
+                        <h5>Calificación Individual:</h5>
+                        <ul>
+                            <li>Haz clic en <strong>"Calificar"</strong> junto al nombre del estudiante</li>
+                            <li>Ingresa la calificación (respetando el puntaje máximo)</li>
+                            <li>Guarda la calificación</li>
+                        </ul>
+                        <h5>Calificación Masiva:</h5>
+                        <ul>
+                            <li>Usa el formulario de calificación masiva</li>
+                            <li>Ingresa las calificaciones de todos los estudiantes</li>
+                            <li>Guarda todas las calificaciones de una vez</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Sistema de Calificaciones Colombiano</h4>
+            <p>El sistema maneja la escala de calificaciones de 1.0 a 5.0:</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rango</th>
+                            <th>Desempeño</th>
+                            <th>Color en el Sistema</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4.6 - 5.0</td>
+                            <td>Desempeño Superior</td>
+                            <td style="background-color: #d4edda;">Verde</td>
+                        </tr>
+                        <tr>
+                            <td>4.0 - 4.5</td>
+                            <td>Desempeño Alto</td>
+                            <td style="background-color: #d4edda;">Verde</td>
+                        </tr>
+                        <tr>
+                            <td>3.0 - 3.9</td>
+                            <td>Desempeño Básico</td>
+                            <td style="background-color: #fff3cd;">Amarillo</td>
+                        </tr>
+                        <tr>
+                            <td>1.0 - 2.9</td>
+                            <td>Desempeño Bajo</td>
+                            <td style="background-color: #f8d7da;">Rojo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="prof-periodos">5.3 Manejo de Períodos</h3>
+            
+            <h4>Finalizar un Período</h4>
+            <p>Para finalizar un período académico, se deben cumplir dos condiciones obligatorias:</p>
+
+            <div class="step-list">
+                <h5>Condiciones para Finalizar:</h5>
+                <ol>
+                    <li><strong>100% en Actividades:</strong> Todas las materias deben tener actividades que sumen exactamente 100% en porcentajes</li>
+                    <li><strong>Todos los Estudiantes Calificados:</strong> Cada actividad debe tener calificaciones para todos los estudiantes inscritos</li>
+                </ol>
+            </div>
+
+            <div class="step-list">
+                <h5>Proceso de Finalización:</h5>
+                <ol>
+                    <li>Ve a la sección de <strong>"Períodos"</strong></li>
+                    <li>Selecciona el período que quieres finalizar</li>
+                    <li>Haz clic en <strong>"Finalizar Período"</strong></li>
+                    <li>El sistema verificará las condiciones:
+                        <ul>
+                            <li>Si hay materias sin 100%: te mostrará cuáles faltan</li>
+                            <li>Si hay estudiantes sin calificar: te indicará cuáles actividades</li>
+                            <li>Si todo está correcto: procederá con la finalización</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Al Finalizar un Período:</strong> El sistema calculará automáticamente las notas finales de cada estudiante en cada materia, considerando los porcentajes de las actividades realizadas.
+            </div>
+        </section>
+
+        <section id="estudiante" class="section">
+            <h2>6. 🎓 Manual del Estudiante</h2>
+            
+            <p>Como estudiante, puedes consultar tu progreso académico, acceder a recursos de biblioteca y participar en el foro académico.</p>
+
+            <h3 id="est-materias">6.1 Visualización de Materias</h3>
+            
+            <h4>Acceder a Mis Materias</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en <strong>"📖 Mis Materias"</strong> en el menú principal</li>
+                    <li>Verás un dashboard con resumen de tu progreso:
+                        <ul>
+                            <li>Total de materias inscritas</li>
+                            <li>Materias con calificaciones</li>
+                            <li>Tu promedio general actual</li>
+                            <li>Total de períodos académicos</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Explorar una Materia</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en cualquier materia para expandir sus detalles</li>
+                    <li>Verás información organizada por períodos académicos:</li>
+                    <li>Para cada período encontrarás:
+                        <ul>
+                            <li><strong>Estado del período:</strong> Activo, Finalizado, etc.</li>
+                            <li><strong>Nota final del período:</strong> Si ya está calificado</li>
+                            <li><strong>Lista de actividades:</strong> Todas las actividades del período</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Ver Actividades y Calificaciones</h4>
+            <p>Para cada actividad puedes ver:</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Información</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nombre y Descripción</strong></td>
+                            <td>Título y detalles de qué se debe realizar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tipo de Actividad</strong></td>
+                            <td>Examen, Tarea, Proyecto, etc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estado</strong></td>
+                            <td>Publicada, Finalizada, etc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Porcentaje</strong></td>
+                            <td>Peso de la actividad en la nota final</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu Calificación</strong></td>
+                            <td>Nota obtenida (si ya está calificada)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Puntuación</strong></td>
+                            <td>Puntos obtenidos del total posible</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Interpretación de Colores</h4>
+            <div class="feature-box">
+                <ul>
+                    <li><strong style="color: #28a745;">🟢 Verde (4.0 - 5.0):</strong> Excelente desempeño</li>
+                    <li><strong style="color: #ffc107;">🟡 Amarillo (3.0 - 3.9):</strong> Desempeño básico, puedes mejorar</li>
+                    <li><strong style="color: #dc3545;">🔴 Rojo (Menos de 3.0):</strong> Necesitas refuerzo académico</li>
+                </ul>
+            </div>
+
+            <h3 id="est-biblioteca">6.2 Sistema de Biblioteca</h3>
+            
+            <h4>Explorar el Catálogo</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en <strong>"📚 Biblioteca"</strong> en el menú</li>
+                    <li>Explora el catálogo de recursos disponibles</li>
+                    <li>Usa los filtros para encontrar lo que necesitas:
+                        <ul>
+                            <li><strong>Buscar:</strong> Por título, autor o tema</li>
+                            <li><strong>Tipo de Recurso:</strong> Libros, Revistas, Digital, Multimedia</li>
+                            <li><strong>Disponibilidad:</strong> Solo recursos disponibles para préstamo</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Solicitar un Préstamo</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Encuentra el recurso que quieres solicitar</li>
+                    <li>Verifica que esté disponible (copias disponibles > 0)</li>
+                    <li>Haz clic en <strong>"Solicitar Préstamo"</strong></li>
+                    <li>Recibirás un mensaje de confirmación</li>
+                    <li><strong>Importante:</strong> Tu solicitud debe ser aprobada por el administrador de la biblioteca</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Proceso de Solicitudes:</strong> Los préstamos no son automáticos. Un administrador debe aprobar tu solicitud antes de que puedas retirar el recurso de la biblioteca.
+            </div>
+
+            <h4>Gestionar Mis Préstamos</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Ve a <strong>"Mis Préstamos"</strong></li>
+                    <li>Aquí verás todas tus solicitudes y préstamos:
+                        <ul>
+                            <li><strong>Solicitudes Pendientes:</strong> Esperando aprobación</li>
+                            <li><strong>Préstamos Activos:</strong> Recursos que tienes prestados</li>
+                            <li><strong>Historial:</strong> Préstamos anteriores</li>
+                        </ul>
+                    </li>
+                    <li>Para préstamos activos puedes:
+                        <ul>
+                            <li>Ver la fecha de devolución</li>
+                            <li>Solicitar renovación (si está permitido)</li>
+                            <li>Ver detalles del recurso</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Estados de Préstamos</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Estado</th>
+                            <th>Descripción</th>
+                            <th>Qué hacer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Solicitado</strong></td>
+                            <td>Solicitud enviada, esperando aprobación</td>
+                            <td>Esperar respuesta del administrador</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aprobado</strong></td>
+                            <td>Solicitud aprobada, puedes retirar el recurso</td>
+                            <td>Ir a la biblioteca a retirar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Activo</strong></td>
+                            <td>Recurso prestado, en tu poder</td>
+                            <td>Usar el recurso, devolver antes de la fecha límite</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vencido</strong></td>
+                            <td>Pasó la fecha de devolución</td>
+                            <td>Devolver inmediatamente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Devuelto</strong></td>
+                            <td>Recurso devuelto exitosamente</td>
+                            <td>Préstamo completado</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rechazado</strong></td>
+                            <td>Solicitud no aprobada</td>
+                            <td>Ver motivo de rechazo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="est-foro">6.3 Participación en el Foro</h3>
+            
+            <h4>Explorar el Foro Académico</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en <strong>"💬 Foro"</strong> en el menú</li>
+                    <li>Explora las categorías disponibles organizadas por temas académicos</li>
+                    <li>Haz clic en una categoría para ver las publicaciones</li>
+                </ol>
+            </div>
+
+            <h4>Crear una Publicación</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en <strong>"Crear Publicación"</strong></li>
+                    <li>Completa el formulario:
+                        <ul>
+                            <li><strong>Título:</strong> Título descriptivo de tu publicación</li>
+                            <li><strong>Categoría:</strong> Selecciona la categoría más apropiada</li>
+                            <li><strong>Contenido:</strong> Escribe tu publicación con detalles</li>
+                        </ul>
+                    </li>
+                    <li>Haz clic en <strong>"Publicar"</strong></li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Moderación:</strong> Todas las publicaciones deben ser aprobadas por un administrador antes de ser visibles para otros usuarios. Mantén el contenido académico y respetuoso.
+            </div>
+
+            <h4>Participar en Discusiones</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en una publicación para ver su contenido completo</li>
+                    <li>Lee los comentarios existentes</li>
+                    <li>Para agregar tu comentario:
+                        <ul>
+                            <li>Escribe tu comentario en el campo correspondiente</li>
+                            <li>Haz clic en <strong>"Comentar"</strong></li>
+                            <li>Tu comentario también requiere aprobación</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h4>Ver Mi Actividad en el Foro</h4>
+            <div class="step-list">
+                <ol>
+                    <li>Haz clic en <strong>"Ver mi actividad en el foro"</strong></li>
+                    <li>Verás un resumen de tu participación:</li>
+                    <li>Pestañas disponibles:
+                        <ul>
+                            <li><strong>Mis Publicaciones:</strong> Todas tus publicaciones (aprobadas y pendientes)</li>
+                            <li><strong>Mis Comentarios:</strong> Todos tus comentarios con enlaces al contexto</li>
+                        </ul>
+                    </li>
+                    <li>Desde aquí puedes:
+                        <ul>
+                            <li>Ver tus publicaciones pendientes de aprobación</li>
+                            <li>Editar tus publicaciones</li>
+                            <li>Ver el contexto de tus comentarios</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <h2>7. ❓ Preguntas Frecuentes</h2>
+            
+            <h3>Preguntas Generales</h3>
+            
+            <h4>¿Cómo recupero mi contraseña?</h4>
+            <p>Contacta al administrador de tu institución. Por seguridad, solo los administradores pueden resetear contraseñas.</p>
+
+            <h4>¿Puedo cambiar mi información personal?</h4>
+            <p>Los datos personales solo pueden ser modificados por administradores. Si necesitas actualizar información, contacta a la administración.</p>
+
+            <h3>Para Estudiantes</h3>
+            
+            <h4>¿Por qué no veo una materia en "Mis Materias"?</h4>
+            <p>Posibles razones:</p>
+            <ul>
+                <li>No estás inscrito en un grupo activo</li>
+                <li>La materia no está asignada a tu plan académico</li>
+                <li>Hay un problema con tu inscripción - contacta al administrador</li>
+            </ul>
+
+            <h4>¿Por qué mi solicitud de préstamo fue rechazada?</h4>
+            <p>Las solicitudes pueden ser rechazadas por:</p>
+            <ul>
+                <li>Recurso no disponible</li>
+                <li>Tienes préstamos vencidos</li>
+                <li>Alcanzaste el límite de préstamos simultáneos</li>
+                <li>El recurso está reservado</li>
+            </ul>
+
+            <h4>¿Por qué no aparece mi publicación en el foro?</h4>
+            <p>Todas las publicaciones requieren aprobación de un moderador. Esto puede tomar tiempo dependiendo de la disponibilidad del personal.</p>
+
+            <h3>Para Profesores</h3>
+            
+            <h4>¿Por qué no puedo finalizar un período?</h4>
+            <p>Para finalizar un período se requiere:</p>
+            <ul>
+                <li>Que todas las materias tengan actividades que sumen exactamente 100% en porcentajes</li>
+                <li>Que todos los estudiantes estén calificados en todas las actividades</li>
+            </ul>
+
+            <h4>¿Puedo cambiar una calificación después de finalizar el período?</h4>
+            <p>No, una vez finalizado el período las calificaciones quedan bloqueadas. Si necesitas hacer cambios, contacta al administrador.</p>
+
+            <h4>¿Cómo calculo los porcentajes de mis actividades?</h4>
+            <p>Los porcentajes deben sumar exactamente 100% por período. Por ejemplo:</p>
+            <ul>
+                <li>2 Exámenes: 40% cada uno = 80%</li>
+                <li>1 Proyecto: 15%</li>
+                <li>1 Participación: 5%</li>
+                <li>Total: 100%</li>
+            </ul>
+
+            <h3>Para Administradores</h3>
+            
+            <h4>¿Cómo asigno estudiantes a grupos?</h4>
+            <p>Al crear o editar un estudiante, simplemente asigna el "Nivel de Grado" y "Grupo". El sistema creará automáticamente la inscripción activa.</p>
+
+            <h4>¿Puedo eliminar un usuario?</h4>
+            <p>Sí, pero ten cuidado con eliminar usuarios que tienen actividad académica registrada (calificaciones, préstamos, etc.) ya que esto puede afectar los reportes.</p>
+        </section>
+
+        <section id="soporte" class="section">
+            <h2>8. 🛠️ Soporte Técnico</h2>
+            
+            <h3>Canales de Soporte</h3>
+            <p>Si experimentas problemas técnicos con el sistema, sigue estos pasos:</p>
+
+            <div class="step-list">
+                <h4>Proceso de Soporte</h4>
+                <ol>
+                    <li><strong>Verifica este manual:</strong> Muchas dudas están resueltas aquí</li>
+                    <li><strong>Intenta cerrar y abrir sesión:</strong> Esto resuelve problemas menores</li>
+                    <li><strong>Verifica tu conexión a internet:</strong> Asegúrate de tener conexión estable</li>
+                    <li><strong>Contacta al administrador:</strong> Si el problema persiste</li>
+                </ol>
+            </div>
+
+            <h3>Información para Reportar Problemas</h3>
+            <p>Cuando reportes un problema, incluye:</p>
+
+            <div class="feature-box">
+                <ul>
+                    <li><strong>Tu rol en el sistema:</strong> Estudiante, Profesor, Administrador</li>
+                    <li><strong>Qué estabas intentando hacer:</strong> Acción específica</li>
+                    <li><strong>Qué pasó exactamente:</strong> Error o comportamiento inesperado</li>
+                    <li><strong>Navegador que usas:</strong> Chrome, Firefox, Safari, etc.</li>
+                    <li><strong>Captura de pantalla:</strong> Si es posible</li>
+                    <li><strong>Hora aproximada:</strong> Cuándo ocurrió el problema</li>
+                </ul>
+            </div>
+
+            <h3>Navegadores Recomendados</h3>
+            <p>El sistema funciona mejor en:</p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Navegador</th>
+                            <th>Versión Mínima</th>
+                            <th>Compatibilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Chrome</td>
+                            <td>90+</td>
+                            <td>✅ Excelente</td>
+                        </tr>
+                        <tr>
+                            <td>Mozilla Firefox</td>
+                            <td>88+</td>
+                            <td>✅ Excelente</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft Edge</td>
+                            <td>90+</td>
+                            <td>✅ Excelente</td>
+                        </tr>
+                        <tr>
+                            <td>Safari</td>
+                            <td>14+</td>
+                            <td>✅ Buena</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Consejos de Seguridad</h3>
+            <div class="warning-box">
+                <h4>🔒 Mantén tu Cuenta Segura</h4>
+                <ul>
+                    <li><strong>No compartir credenciales:</strong> Tu usuario y contraseña son personales</li>
+                    <li><strong>Cerrar sesión:</strong> Especialmente en computadores compartidos</li>
+                    <li><strong>Reportar actividad sospechosa:</strong> Si notas algo extraño en tu cuenta</li>
+                    <li><strong>Usar conexiones seguras:</strong> Evita redes WiFi públicas para acceder al sistema</li>
+                </ul>
+            </div>
+
+            <h3>Actualizaciones del Sistema</h3>
+            <p>El sistema se actualiza periódicamente para mejorar funcionalidades y corregir errores. Las actualizaciones importantes serán comunicadas con anticipación.</p>
+
+            <div class="success-box">
+                <h4>✅ Mejores Prácticas</h4>
+                <ul>
+                    <li><strong>Actualiza tu navegador:</strong> Mantén tu navegador actualizado</li>
+                    <li><strong>Limpia caché periódicamente:</strong> Esto previene problemas de visualización</li>
+                    <li><strong>Usa el sistema regularmente:</strong> Para mantenerte al día con las novedades</li>
+                    <li><strong>Lee las notificaciones:</strong> El sistema puede mostrar avisos importantes</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="section" style="text-align: center; border: none;">
+            <hr style="margin: 40px 0;">
+            <p style="color: #666; font-style: italic;">
+                📚 Sistema Educativo PAI-REP - Manual de Usuario v1.0<br>
+                Desarrollado para facilitar la gestión académica integral<br>
+                <strong>Fecha de este manual:</strong> Agosto 2025
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printManual() {
+            window.print();
+        }
+
+        // Add print button
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '🖨️ Imprimir Manual';
+            printButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #667eea;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                font-weight: 500;
+                z-index: 1000;
+            `;
+            printButton.onclick = printManual;
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>

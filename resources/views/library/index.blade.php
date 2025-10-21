@@ -13,7 +13,7 @@
                         <span class="text-white text-2xl">📚</span>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold text-white">Biblioteca Escolar</h1>
+                        <h1 class="text-2xl font-bold text-white">Administracion de Biblioteca Escolar</h1>
                         <p class="text-purple-100">Recursos educativos para la comunidad académica</p>
                     </div>
                 </div>

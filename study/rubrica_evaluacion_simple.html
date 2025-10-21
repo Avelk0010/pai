@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rúbrica de Evaluación - Proyecto PAI-REP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2c3e50;
+        }
+
+        .evaluation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .evaluation-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .evaluation-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+
+        .evaluation-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .criteria-column {
+            background-color: #e3f2fd;
+            font-weight: bold;
+            width: 60%;
+        }
+
+        .score-column {
+            text-align: center;
+            width: 20%;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .individual-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .individual-table th {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .individual-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .individual-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .result-section {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .approval-section {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .scale-section {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #27ae60;
+        }
+
+        .scale-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .scale-item {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .failed { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .good { background: linear-gradient(135deg, #f39c12, #d68910); }
+        .excellent { background: linear-gradient(135deg, #27ae60, #229954); }
+
+        .group-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .group-section h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .signature-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .signature-box {
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+        }
+
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .print-btn:hover {
+            background: #229954;
+        }
+
+        .checkbox-large {
+            transform: scale(1.5);
+            margin: 0 10px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; margin: 0; }
+            .print-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Rúbrica</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>📋 Rúbrica de Evaluación</h1>
+            <p>Proyecto PAI-REP - Plataforma Académica Institucional República de Panamá</p>
+        </div>
+
+        <div class="content">
+            <div class="info-section">
+                <h2>📋 Información de Evaluación</h2>
+                <p><strong>Proyecto:</strong> Sistema PAI-REP (Plataforma Académica Institucional República de Panamá)</p>
+                <p><strong>Modalidad:</strong> Exposición grupal ante jurado</p>
+                <p><strong>Tiempo:</strong> 20-30 minutos + 5 minutos de preguntas</p>
+                <p><strong>Puntuación:</strong> 100%</p>
+            </div>
+
+            <div class="scale-section">
+                <h3>📊 Escala de Calificación</h3>
+                <div class="scale-grid">
+                    <div class="scale-item failed">
+                        <strong>Menos de 60%</strong><br>
+                        REPROBADO
+                    </div>
+                    <div class="scale-item good">
+                        <strong>60% - 85%</strong><br>
+                        BUENO
+                    </div>
+                    <div class="scale-item excellent">
+                        <strong>Más de 85%</strong><br>
+                        EXCELENTE
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-section">
+                <h3>👥 Información del Grupo</h3>
+                <p><strong>Grupo #:</strong> _____________________ &nbsp;&nbsp;&nbsp; <strong>Fecha:</strong> _____________________</p>
+                <p><strong>Tema:</strong> _____________________________________________________________________</p>
+                <p><strong>Integrantes:</strong></p>
+                <p>1. _________________________________ &nbsp; 2. _________________________________</p>
+                <p>3. _________________________________ &nbsp; 4. _________________________________</p>
+                <p>5. _________________________________ &nbsp; 6. _________________________________</p>
+                <p>7. _________________________________ &nbsp; 8. _________________________________</p>
+            </div>
+
+            <table class="evaluation-table">
+                <thead>
+                    <tr>
+                        <th>Criterio de Evaluación</th>
+                        <th>Valor</th>
+                        <th>Puntaje Obtenido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>📚 Dominio del Contenido Técnico</strong><br>
+                            <small>Comprensión de tecnologías, arquitectura y funcionalidades del sistema PAI-REP</small>
+                        </td>
+                        <td class="score-column">25%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>🎯 Claridad y Organización de la Presentación</strong><br>
+                            <small>Estructura lógica, fluidez, coherencia y manejo de transiciones</small>
+                        </td>
+                        <td class="score-column">20%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>🗣️ Habilidades de Comunicación</strong><br>
+                            <small>Dicción, volumen, contacto visual, seguridad y lenguaje técnico apropiado</small>
+                        </td>
+                        <td class="score-column">15%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>🎨 Uso de Material Visual y Ejemplos</strong><br>
+                            <small>Calidad de diapositivas HTML, ejemplos prácticos y apoyo visual efectivo</small>
+                        </td>
+                        <td class="score-column">15%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>👥 Participación Grupal y Coordinación</strong><br>
+                            <small>Participación equitativa, coordinación del equipo y distribución del tiempo</small>
+                        </td>
+                        <td class="score-column">15%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>⏰ Manejo del Tiempo y Ritmo</strong><br>
+                            <small>Respeto al tiempo asignado y ritmo apropiado de presentación</small>
+                        </td>
+                        <td class="score-column">5%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="criteria-column">
+                            <strong>❓ Respuesta a Preguntas del Jurado</strong><br>
+                            <small>Capacidad de responder preguntas con claridad, precisión y conocimiento</small>
+                        </td>
+                        <td class="score-column">5%</td>
+                        <td class="score-column">_____%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="result-section">
+                <h2>🏆 Calificación Final del Grupo</h2>
+                <p style="font-size: 1.5em; margin: 10px 0;"><strong>PROMEDIO TOTAL: ______%</strong></p>
+            </div>
+
+            <div class="approval-section">
+                <h2>✅ Resultado Final del Grupo</h2>
+                <div style="font-size: 1.5em; margin: 10px 0;">
+                    <label style="margin-right: 30px;">
+                        <input type="checkbox" class="checkbox-large"> <strong>APROBADO</strong>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="checkbox-large"> <strong>NO APROBADO</strong>
+                    </label>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; border-radius: 10px; padding: 20px; margin: 30px 0; border-left: 5px solid #ffc107;">
+                <h3>💭 Observaciones Generales del Grupo</h3>
+                <p>_________________________________________________________________________________</p>
+                <p>_________________________________________________________________________________</p>
+            </div>
+
+            <div style="background: #d4edda; border-radius: 10px; padding: 20px; margin: 30px 0; border-left: 5px solid #27ae60;">
+                <h2>👤 Calificación Individual de Estudiantes</h2>
+                <p><strong>Instrucciones:</strong> Evaluar el desempeño individual de cada estudiante durante la presentación</p>
+                
+                <table class="individual-table" style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">#</th>
+                            <th style="width: 50%;">Nombre Completo del Estudiante</th>
+                            <th style="width: 20%;">Porcentaje Individual</th>
+                            <th style="width: 10%;">Aprueba</th>
+                            <th style="width: 10%;">No Aprueba</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>8</strong></td>
+                            <td>_________________________________________</td>
+                            <td><strong>_____%</strong></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                            <td><input type="checkbox" class="checkbox-large"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="background: #e3f2fd; border-radius: 10px; padding: 20px; margin: 20px 0; border-left: 5px solid #2196f3;">
+                <h3>📝 Comentarios Individuales Adicionales</h3>
+                <p>_________________________________________________________________________________</p>
+                <p>_________________________________________________________________________________</p>
+                <p>_________________________________________________________________________________</p>
+                <p>_________________________________________________________________________________</p>
+            </div>
+
+            <div class="signature-section">
+                <div class="signature-box">
+                    <h4>Evaluador Principal</h4>
+                    <p style="margin: 40px 0 10px 0;">_________________________</p>
+                    <p><strong>Nombre y Firma</strong></p>
+                    <p>Fecha: _______________</p>
+                </div>
+                
+                <div class="signature-box">
+                    <h4>Co-evaluador</h4>
+                    <p style="margin: 40px 0 10px 0;">_________________________</p>
+                    <p><strong>Nombre y Firma</strong></p>
+                    <p>Fecha: _______________</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

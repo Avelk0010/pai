@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo 2: Foro Académico - Sistema PAI-REP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            margin: -20px -20px 30px -20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro { background: #e8f5e8; border-left: 5px solid #27ae60; }
+        .concept { background: #e8f4fd; border-left: 5px solid #3498db; }
+        .example { background: #fff3cd; border-left: 5px solid #f39c12; }
+        .code { background: #f8f9fa; border-left: 5px solid #6c757d; }
+        .demo { background: #fce4ec; border-left: 5px solid #e91e63; }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-title {
+            background: #4a5568;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 15px -20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #ffd700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .time-indicator {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .tip {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .feature-box {
+            display: inline-block;
+            padding: 15px 20px;
+            margin: 10px;
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            min-width: 200px;
+        }
+
+        .flow-diagram {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 Grupo 2: Foro Académico - Sistema PAI-REP</h1>
+            <p>Comunicación y Colaboración en el Sistema PAI-REP</p>
+        </div>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🎯 ¿Qué es un Foro Académico?</h2>
+            
+            <p><strong>Imaginen Facebook, pero solo para educación.</strong> Un lugar donde estudiantes y profesores pueden hacer preguntas, compartir ideas, y discutir temas académicos de forma organizada.</p>
+
+            <div class="important-note">
+                <strong>🏠 Analogía Simple:</strong> Es como el tablón de anuncios de la escuela, pero digital, organizado por temas, y donde todos pueden participar y responder.
+            </div>
+
+            <h3>¿Para qué sirve?</h3>
+            <ul>
+                <li><strong>Preguntas y Dudas:</strong> "¿Alguien me explica esta fórmula de física?"</li>
+                <li><strong>Anuncios:</strong> "Cambio de fecha del examen de matemáticas"</li>
+                <li><strong>Discusiones:</strong> "¿Qué opinan sobre el libro que leímos?"</li>
+                <li><strong>Ayuda Colaborativa:</strong> Los estudiantes se ayudan entre sí</li>
+                <li><strong>Recursos:</strong> Compartir enlaces, documentos, videos</li>
+            </ul>
+        </section>
+
+        <section class="section concept">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>🏗️ Estructura del Foro</h2>
+
+            <h3>Componentes Principales</h3>
+
+            <div class="feature-box">
+                📂 <strong>Categorías</strong><br>
+                Matemáticas, Ciencias, Idiomas, etc.
+            </div>
+
+            <div class="feature-box">
+                📝 <strong>Publicaciones</strong><br>
+                Preguntas, anuncios, discusiones
+            </div>
+
+            <div class="feature-box">
+                💬 <strong>Comentarios</strong><br>
+                Respuestas a las publicaciones
+            </div>
+
+            <div class="feature-box">
+                👮 <strong>Moderación</strong><br>
+                Control de contenido apropiado
+            </div>
+
+            <h3>Categorías del Sistema PAI-REP</h3>
+            <div class="flow-diagram">
+                📚 <strong>Matemáticas</strong><br>
+                🔬 <strong>Ciencias Naturales</strong><br>
+                🌍 <strong>Ciencias Sociales</strong><br>
+                📖 <strong>Lenguaje</strong><br>
+                🌐 <strong>Idiomas</strong><br>
+                💻 <strong>Tecnología</strong><br>
+                🎨 <strong>Artes</strong><br>
+                ⚽ <strong>Educación Física</strong><br>
+                📢 <strong>Anuncios Generales</strong>
+            </div>
+        </section>
+
+        <section class="section example">
+            <div class="time-indicator">⏰ Tiempo: 5 minutos</div>
+            <h2>⚡ ¿Cómo Funciona el Sistema?</h2>
+
+            <h3>Flujo de una Publicación</h3>
+            <div class="flow-diagram">
+                <strong>1. Usuario crea publicación</strong><br>
+                <div class="arrow">↓</div>
+                <strong>2. Se guarda con estado "Pendiente"</strong><br>
+                <div class="arrow">↓</div>
+                <strong>3. Administrador revisa contenido</strong><br>
+                <div class="arrow">↓</div>
+                <strong>4. Aprueba o rechaza</strong><br>
+                <div class="arrow">↓</div>
+                <strong>5. Si se aprueba, se publica</strong><br>
+                <div class="arrow">↓</div>
+                <strong>6. Otros usuarios pueden comentar</strong>
+            </div>
+
+            <h3>¿Por qué necesita moderación?</h3>
+            <ul>
+                <li><strong>🛡️ Contenido apropiado:</strong> Evitar lenguaje inapropiado</li>
+                <li><strong>📚 Relevancia académica:</strong> Solo temas educativos</li>
+                <li><strong>🎯 Organización:</strong> Publicaciones en la categoría correcta</li>
+                <li><strong>🤝 Respeto:</strong> Ambiente de aprendizaje positivo</li>
+            </ul>
+
+            <div class="important-note">
+                <strong>💡 Ventaja:</strong> La moderación asegura que el foro sea un espacio seguro y útil para el aprendizaje, no una red social común.
+            </div>
+        </section>
+
+        <section class="section code">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>💻 ¿Cómo se programa?</h2>
+
+            <h3>Ejemplo 1: Crear una publicación</h3>
+            <div class="code-block">
+                <div class="code-title">📄 Controlador del Foro (ForumController.php)</div>
+<pre>
+// Cuando un usuario quiere crear una publicación
+public function store(Request $request)
+{
+    // 1. Validar que los datos estén completos
+    $request->validate([
+        'title' => 'required|max:255',        // Título obligatorio
+        'content' => 'required',              // Contenido obligatorio
+        'category_id' => 'required'           // Categoría obligatoria
+    ]);
+
+    // 2. Crear la publicación
+    ForumPost::create([
+        'title' => $request->title,
+        'content' => $request->content,
+        'category_id' => $request->category_id,
+        'author_id' => auth()->user()->id,    // ¿Quién la escribió?
+        'is_approved' => false,               // Empieza sin aprobar
+        'created_at' => now()
+    ]);
+
+    return redirect('/forum')->with('success', 
+        'Tu publicación está pendiente de aprobación');
+}
+</pre>
+            </div>
+
+            <div class="important-note">
+                <strong>🔍 Explicación:</strong> Este código toma la información que escribió el usuario, la valida (verifica que esté completa), y la guarda en la base de datos marcada como "pendiente de aprobación".
+            </div>
+
+            <h3>Ejemplo 2: Sistema de moderación</h3>
+            <div class="code-block">
+                <div class="code-title">👮 Función de Aprobación</div>
+<pre>
+// Cuando el administrador aprueba una publicación
+public function approve($id)
+{
+    // 1. Buscar la publicación
+    $post = ForumPost::find($id);
+    
+    // 2. Verificar que existe
+    if (!$post) {
+        return redirect()->back()->with('error', 'Publicación no encontrada');
+    }
+
+    // 3. Aprobarla
+    $post->update([
+        'is_approved' => true,           // ✅ Ahora está aprobada
+        'approved_at' => now(),          // Fecha de aprobación
+        'approved_by' => auth()->user()->id  // Quién la aprobó
+    ]);
+
+    return redirect()->back()->with('success', 
+        'Publicación aprobada exitosamente');
+}
+</pre>
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="time-indicator">⏰ Tiempo: 4 minutos</div>
+            <h2>🎭 Casos de Uso Reales</h2>
+
+            <h3>Escenario 1: Estudiante con duda</h3>
+            <div class="flow-diagram">
+                <strong>Ana (estudiante)</strong> tiene duda en matemáticas<br>
+                <div class="arrow">↓</div>
+                Crea publicación: "¿Cómo resolver ecuaciones cuadráticas?"<br>
+                <div class="arrow">↓</div>
+                Profesor Carlos revisa y aprueba la publicación<br>
+                <div class="arrow">↓</div>
+                Otros estudiantes y profesores responden con explicaciones<br>
+                <div class="arrow">↓</div>
+                ¡Ana aprende y otros también se benefician!
+            </div>
+
+            <h3>Escenario 2: Anuncio importante</h3>
+            <div class="code-block">
+                <div class="code-title">📢 Ejemplo de Anuncio</div>
+<pre>
+Título: "Cambio de fecha - Examen de Química"
+Categoría: Ciencias Naturales
+Autor: Profesor Martinez
+Contenido: 
+"Estimados estudiantes del grado 11, 
+el examen de química programado para el viernes 15 
+se aplazará para el martes 19 debido a la reunión 
+de profesores. Estudien los capítulos 5, 6 y 7."
+
+Estado: Aprobado automáticamente (es profesor)
+Comentarios permitidos: Sí
+</pre>
+            </div>
+
+            <h3>Beneficios del Sistema</h3>
+            <ul>
+                <li><strong>📱 Acceso 24/7:</strong> Consultar dudas en cualquier momento</li>
+                <li><strong>👥 Aprendizaje colaborativo:</strong> Estudiantes se ayudan mutuamente</li>
+                <li><strong>📚 Histórico de consultas:</strong> Reutilizar respuestas anteriores</li>
+                <li><strong>🎯 Organización temática:</strong> Fácil encontrar información específica</li>
+                <li><strong>👨‍🏫 Participación docente:</strong> Profesores guían las discusiones</li>
+            </ul>
+        </section>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 3 minutos</div>
+            <h2>🔧 Funcionalidades Técnicas</h2>
+
+            <h3>Panel de Moderación</h3>
+            <div class="code-block">
+                <div class="code-title">📊 Vista de Administrador</div>
+<pre>
+// El administrador puede ver:
+- 📊 Total de publicaciones pendientes: 5
+- 📊 Total de comentarios pendientes: 12  
+- 📊 Publicaciones activas: 143
+- 📊 Total de usuarios activos: 89
+
+// Acciones disponibles:
+✅ Aprobar publicación
+❌ Rechazar publicación  
+🗑️ Eliminar contenido inapropiado
+📝 Editar contenido (si es necesario)
+📊 Ver estadísticas de participación
+</pre>
+            </div>
+
+            <h3>Búsqueda y Filtros</h3>
+            <ul>
+                <li><strong>🔍 Buscar por palabras clave:</strong> "ecuaciones", "examen", etc.</li>
+                <li><strong>📂 Filtrar por categoría:</strong> Solo matemáticas, solo ciencias</li>
+                <li><strong>👤 Filtrar por autor:</strong> Publicaciones de un profesor específico</li>
+                <li><strong>📅 Filtrar por fecha:</strong> Publicaciones de esta semana</li>
+                <li><strong>⭐ Ordenar por popularidad:</strong> Más comentadas primero</li>
+            </ul>
+
+            <div class="tip">
+                <strong>💡 Característica Especial:</strong> El sistema guarda automáticamente el historial de actividad de cada usuario, permitiendo ver todas sus publicaciones y comentarios desde "Mi actividad en el foro".
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="time-indicator">⏰ Tiempo: 2 minutos</div>
+            <h2>🚀 Impacto en la Educación</h2>
+
+            <h3>Antes del Foro</h3>
+            <ul>
+                <li>❌ Dudas solo se resuelven en clase</li>
+                <li>❌ Información se pierde después de explicarla</li>
+                <li>❌ Solo algunos estudiantes participan</li>
+                <li>❌ Comunicación unidireccional</li>
+            </ul>
+
+            <h3>Con el Foro Académico</h3>
+            <ul>
+                <li>✅ Dudas se resuelven 24/7</li>
+                <li>✅ Conocimiento se acumula y reutiliza</li>
+                <li>✅ Participación más amplia e inclusiva</li>
+                <li>✅ Comunicación bidireccional y colaborativa</li>
+                <li>✅ Los tímidos también pueden participar</li>
+                <li>✅ Diferentes perspectivas enriquecen el aprendizaje</li>
+            </ul>
+
+            <div class="important-note">
+                <strong>🏆 Resultado:</strong> Un espacio digital que extiende el aula más allá de las paredes físicas, fomentando una comunidad de aprendizaje activa y colaborativa.
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px; border-radius: 10px;">
+            <h2 style="color: #2c3e50;">🎤 Preguntas para la Audiencia</h2>
+            <p><strong>1.</strong> ¿Qué ventajas tiene un foro académico comparado con WhatsApp o redes sociales?</p>
+            <p><strong>2.</strong> ¿Por qué es importante la moderación en un entorno educativo?</p>
+            <p><strong>3.</strong> ¿Cómo puede un foro ayudar a estudiantes tímidos a participar más?</p>
+            <p><strong>4.</strong> ¿Qué tipo de publicación harían ustedes en un foro de su materia favorita?</p>
+        </div>
+    </div>
+</body>
+</html>

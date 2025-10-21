@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo: Datos Generales del Proyecto - Sistema PAI-REP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            margin: -20px -20px 30px -20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro { background: #e8f5e8; border-left: 5px solid #27ae60; }
+        .tech { background: #e8f4fd; border-left: 5px solid #3498db; }
+        .framework { background: #fff3cd; border-left: 5px solid #f39c12; }
+        .database { background: #f8f9fa; border-left: 5px solid #6c757d; }
+        .architecture { background: #fce4ec; border-left: 5px solid #e91e63; }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tech-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .tech-card .version {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-title {
+            background: #4a5568;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 15px -20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #ffd700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .layer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .layer.frontend { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .layer.backend { background: linear-gradient(135deg, #27ae60, #229954); }
+        .layer.database { background: linear-gradient(135deg, #f39c12, #d68910); }
+
+        .time-indicator {
+            background: #8e44ad;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .tip {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .logos-section {
+            text-align: center;
+            padding: 20px 0;
+            background: white;
+            border-bottom: 3px solid #8e44ad;
+            margin-bottom: 0;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-item img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 8px;
+            filter: brightness(1.1);
+        }
+
+        .logo-text {
+            font-size: 0.8em;
+            color: #666;
+            font-weight: bold;
+            text-align: center;
+            max-width: 120px;
+        }
+
+        .institutions-title {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logos-section">
+            <div class="institutions-title">Instituciones Participantes</div>
+            <div class="logos-container">
+                <div class="logo-item">
+                    <img src="https://via.placeholder.com/150x80/FFD700/000000?text=COLOMBIA+POTENCIA+DE+LA+VIDA" alt="Colombia Potencia de la Vida" />
+                    <div class="logo-text">Colombia Potencia de la Vida</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://via.placeholder.com/120x80/FF6B35/FFFFFF?text=TIC" alt="Ministerio TIC" />
+                    <div class="logo-text">Ministerio TIC</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://via.placeholder.com/120x80/00A651/FFFFFF?text=SENA" alt="SENA" />
+                    <div class="logo-text">SENA</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://via.placeholder.com/120x80/0066CC/FFFFFF?text=OIT" alt="Organización Internacional del Trabajo" />
+                    <div class="logo-text">Organización Internacional del Trabajo</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <h1>🚀 Datos Generales del Proyecto - Sistema PAI-REP</h1>
+            <p>Plataforma Académica Institucional República de Panamá</p>
+        </div>
+
+        <section class="section intro">
+            <div class="time-indicator">⏰ Tiempo: 1 minuto</div>
+            <h2>🎯 ¿Qué es PAI-REP?</h2>
+            
+            <p><strong>PAI-REP (Plataforma Académica Institucional República de Panamá)</strong> es un sistema web para gestión educativa que permite a estudiantes, profesores y padres gestionar notas, actividades y comunicación escolar.</p>
+
+            <h3>🎯 Funciones Principales</h3>
+            <ul>
+                <li><strong>📚 Gestión de Notas:</strong> Calificar y ver promedios</li>
+                <li><strong>👥 Usuarios:</strong> Estudiantes, profesores, padres y admin</li>
+                <li><strong>� Comunicación:</strong> Foro y notificaciones</li>
+                <li><strong>📖 Biblioteca:</strong> Préstamo de libros</li>
+            </ul>
+        </section>
+
+        <section class="section tech">
+            <div class="time-indicator">⏰ Tiempo: 2 minutos</div>
+            <h2>💻 Tecnologías Utilizadas</h2>
+
+            <div class="tech-stack">
+                <div class="tech-card">
+                    <h4>🐘 PHP + Laravel</h4>
+                    <p>Lenguaje backend y framework principal</p>
+                </div>
+
+                <div class="tech-card">
+                    <h4>�️ PostgreSQL</h4>
+                    <p>Base de datos para guardar toda la información</p>
+                </div>
+
+                <div class="tech-card">
+                    <h4>🎨 HTML + CSS</h4>
+                    <p>Para crear las páginas web bonitas</p>
+                </div>
+
+                <div class="tech-card">
+                    <h4>⚡ Livewire</h4>
+                    <p>Para hacer la web interactiva</p>
+                </div>
+            </div>
+
+            <h3>📱 ¿Cómo Funciona?</h3>
+            <ul>
+                <li><strong>🖥️ Frontend:</strong> Lo que ve el usuario (HTML + CSS + Livewire)</li>
+                <li><strong>⚙️ Backend:</strong> La lógica del sistema (PHP + Laravel)</li>
+                <li><strong>🗄️ Base de Datos:</strong> Donde se guardan los datos (PostgreSQL)</li>
+            </ul>
+        </section>
+
+        <section class="section framework">
+            <div class="time-indicator">⏰ Tiempo: 2 minutos</div>
+            <h2>� ¿Cómo se ve la Página Web?</h2>
+
+            <h3>� Diseño Responsivo</h3>
+            <ul>
+                <li><strong>� Móvil:</strong> Se adapta a celulares</li>
+                <li><strong>💻 Computador:</strong> Se ve bien en PC</li>
+                <li><strong>� Tablet:</strong> También funciona en tablets</li>
+                <li><strong>🎨 Colores Modernos:</strong> Diseño atractivo y fácil de usar</li>
+            </ul>
+
+            <div class="important-note">
+                <strong>💡 Simple:</strong> Usamos HTML para la estructura, CSS para que se vea bonito, y un poco de JavaScript para que sea interactivo.
+            </div>
+        </section>
+
+
+
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px; border-radius: 10px;">
+            <h2 style="color: #2c3e50;">� Resumen</h2>
+            <p><strong>PAI-REP es un sistema web educativo hecho con:</strong></p>
+            <p>✅ PHP y Laravel (backend) • ✅ PostgreSQL (base de datos) • ✅ HTML, CSS y Livewire (frontend)</p>
+            <p><strong>Permite gestionar estudiantes, notas, foro y biblioteca de manera fácil y moderna.</strong></p>
+        </div>
+    </div>
+</body>
+</html>
