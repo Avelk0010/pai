@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'User Management')
+@section('title', 'Gestión de Usuarios')
 
 @section('content')
 <div class="container mx-auto px-6 py-8">
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-3xl font-bold text-gray-900">User Management</h1>
+        <h1 class="text-3xl font-bold text-gray-900">Gestión de Usuarios</h1>
         <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add New User
+            Agregar Nuevo Usuario
         </a>
     </div>
 
@@ -21,7 +21,7 @@
                     </svg>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-600">Total Users</p>
+                    <p class="text-sm font-medium text-gray-600">Total de Usuarios</p>
                     <p class="text-2xl font-bold text-gray-900">{{ $stats['total_users'] ?? 0 }}</p>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     </svg>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-600">Active Users</p>
+                    <p class="text-sm font-medium text-gray-600">Usuarios Activos</p>
                     <p class="text-2xl font-bold text-gray-900">{{ $stats['active_users'] ?? 0 }}</p>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     </svg>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-600">Inactive Users</p>
+                    <p class="text-sm font-medium text-gray-600">Usuarios Inactivos</p>
                     <p class="text-2xl font-bold text-gray-900">{{ $stats['inactive_users'] ?? 0 }}</p>
                 </div>
             </div>
@@ -74,15 +74,15 @@
     <div class="bg-white p-6 rounded-lg shadow mb-6">
         <div class="flex flex-col md:flex-row gap-4">
             <div class="flex-1">
-                <input type="text" id="searchInput" placeholder="Search users..." 
+                <input type="text" id="searchInput" placeholder="Buscar usuarios..." 
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
             <div class="md:w-48">
                 <select id="roleFilter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option value="">All Roles</option>
-                    <option value="admin">Admin</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="student">Student</option>
+                    <option value="">Todos los Roles</option>
+                    <option value="admin">Administrador</option>
+                    <option value="teacher">Profesor</option>
+                    <option value="student">Estudiante</option>
                     <option value="parent">Parent</option>
                 </select>
             </div>
